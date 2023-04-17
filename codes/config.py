@@ -11,6 +11,7 @@ class Config:
 
     # path
     train_data_path = 'data/train_example.txt'
+    test_data_path = 'data/val_example.txt'
     val_data_path = 'data/test_example.txt'
     checkpoint_path = 'checkpoints'
     log_path = 'log'
