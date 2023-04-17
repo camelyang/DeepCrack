@@ -34,7 +34,7 @@ class Config:
     lr = 1e-3
     momentum = 0.9
     use_adam = True  # Use Adam optimizer
-    train_batch_size = 6
+    train_batch_size = 2
     val_batch_size = 4
     test_batch_size = 4
 
