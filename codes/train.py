@@ -10,7 +10,6 @@ import os
 import cv2
 import sys
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 def main():
     # ----------------------- dataset ----------------------- #
