@@ -10,7 +10,6 @@ import os
 import cv2
 import sys
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 def main():
     # ----------------------- dataset ----------------------- #
@@ -33,6 +32,8 @@ def main():
 
     # -------------------- build trainer --------------------- #
 
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+    
     device = torch.device("cuda")
     num_gpu = torch.cuda.device_count()
 
@@ -41,6 +42,7 @@ def main():
     model.to(device)
 
     trainer = DeepCrackTrainer(model).to(device)
+    
 
     if cfg.pretrained_model:
         pretrained_dict = trainer.saver.load(cfg.pretrained_model, multi_gpu=True)
