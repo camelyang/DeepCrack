@@ -10,8 +10,8 @@ import os
 import cv2
 import sys
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
-export CUDA_VISIBLE_DEVICES=0,1
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+export CUDA_VISIBLE_DEVICES=1
 
 def main():
     # ----------------------- dataset ----------------------- #
