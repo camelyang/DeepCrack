@@ -10,7 +10,7 @@ import os
 import cv2
 import sys
 
-os.environ["CUDA_VISIBLE_DEVICES"] = cfg.gpu_id
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 
 def main():
