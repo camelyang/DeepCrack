@@ -5,9 +5,9 @@ import torch
 import random
 
 
-def readIndex(index_path, shuffle=False):
+def readIndex(train_data_path, shuffle=False):
     img_list = []
-    with open(index_path, 'r') as file_to_read:
+    with open(train_data_path, 'r') as file_to_read:
         while True:
             lines = file_to_read.readline()
             if not lines:
