@@ -10,6 +10,7 @@ import os
 import cv2
 import sys
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 def main():
     # ----------------------- dataset ----------------------- #
@@ -32,7 +33,6 @@ def main():
 
     # -------------------- build trainer --------------------- #
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
     
     device = torch.device("cuda")
     num_gpu = torch.cuda.device_count()
