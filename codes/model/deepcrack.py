@@ -52,11 +52,14 @@ class Fuse(nn.Module):
         self.conv = Conv3X3(64,1)
 
     def forward(self,down_inp,up_inp):
+        print(self.scale)
         outputs = torch.cat([down_inp, up_inp], 1)
         outputs = F.interpolate(outputs, scale_factor=self.scale, mode='bilinear')
+        print(out.shape)
         outputs = self.nn(outputs)
-
-        return self.conv(outputs)
+        print(out.shape)
+        outputs = self.conv(outputs)
+        return outputs
 
 
 
