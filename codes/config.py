@@ -15,7 +15,7 @@ class Config:
     val_data_path = 'data/test_example.txt'
     checkpoint_path = 'checkpoints'
     log_path = 'log'
-    saver_path = os.path.join(checkpoint_path, name)
+    saver_path = 'checkpoints'
     max_save = 20
 
     # visdom
