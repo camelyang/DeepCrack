@@ -167,8 +167,10 @@ def main():
                                     val_acc['mask_acc'] / idx):
                                 cfg.save_pos_acc = (val_acc['mask_pos_acc'] / idx)
                                 cfg.save_acc = (val_acc['mask_acc'] / idx)
-                                trainer.saver.save(model, tag='%s_epoch(%d)_acc(%0.5f/%0.5f)' % (
-                                    cfg.name, epoch, cfg.save_pos_acc, cfg.save_acc))
+                                # trainer.saver.save(model, tag='%s_epoch(%d)_acc(%0.5f/%0.5f)' % (
+                                #    cfg.name, epoch, cfg.save_pos_acc, cfg.save_acc))
+                                torch.save(model.module.state_dict(), os.path.join("/kaggle/working/DeepCrack/codes/checkpoints",str(epoch)+".pth"))
+
                                 trainer.vis.log('Save Model %s_epoch(%d)_acc(%0.5f/%0.5f)' % (
                                     cfg.name, epoch, cfg.save_pos_acc, cfg.save_acc), 'train info')
 
