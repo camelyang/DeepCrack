@@ -150,6 +150,8 @@ class DeepCrack(nn.Module):
         fuse3 = self.fuse3(down_inp=down3, up_inp=up3)
         fuse2 = self.fuse2(down_inp=down2, up_inp=up2)
         fuse1 = self.fuse1(down_inp=down1, up_inp=up1)
+        
+        print(fuse5.shape, fuse4.shape, fuse3.shape, fuse2.shape, fuse1.shape)
 
         output = self.final(torch.cat([fuse5,fuse4,fuse3,fuse2,fuse1],1))
 
