@@ -52,12 +52,9 @@ class Fuse(nn.Module):
         self.conv = Conv3X3(64,1)
 
     def forward(self,down_inp,up_inp):
-        print(self.scale)
         outputs = torch.cat([down_inp, up_inp], 1)
         outputs = F.interpolate(outputs, scale_factor=self.scale, mode='bilinear')
-        print(outputs.shape)
         outputs = self.nn(outputs)
-        print(outputs.shape)
         outputs = self.conv(outputs)
         return outputs
 
@@ -154,7 +151,6 @@ class DeepCrack(nn.Module):
         fuse2 = self.fuse2(down_inp=down2, up_inp=up2)
         fuse1 = self.fuse1(down_inp=down1, up_inp=up1)
         
-        print(fuse5.shape, fuse4.shape, fuse3.shape, fuse2.shape, fuse1.shape)
 
         output = self.final(torch.cat([fuse5,fuse4,fuse3,fuse2,fuse1],1))
 
