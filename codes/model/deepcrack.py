@@ -55,9 +55,9 @@ class Fuse(nn.Module):
         print(self.scale)
         outputs = torch.cat([down_inp, up_inp], 1)
         outputs = F.interpolate(outputs, scale_factor=self.scale, mode='bilinear')
-        print(out.shape)
+        print(outputs.shape)
         outputs = self.nn(outputs)
-        print(out.shape)
+        print(outputs.shape)
         outputs = self.conv(outputs)
         return outputs
 
