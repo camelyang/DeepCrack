@@ -12,7 +12,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 def test(test_data_path='data/test_example.txt',
          save_path='deepcrack_results/',
-         pretrained_model='checkpoints/DeepCrack_CT260_FT1.pth', ):
+         pretrained_model='/kaggle/input/deepcrack-ct300-epoch225/DeepCrack_CT300_epoch225.pth', ):
     if not os.path.exists(save_path):
         os.mkdir(save_path)
 
