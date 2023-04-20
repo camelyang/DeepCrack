@@ -59,6 +59,9 @@ def _preprocess_lab(cvImage):
     :param cvImage: numpy 0(background) or 255(crack pixel)
     :return: tensor 0 or 1 float32
     '''
+    
+    cvImage = cv2.resize(cvImage, (512, 512), interpolation=cv2.INTER_NEAREST)
+
     cvImage = cvImage.astype(np.float32) / 255
 
     return torch.from_numpy(cvImage)
