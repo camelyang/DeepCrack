@@ -6,6 +6,8 @@ from tqdm import tqdm
 import numpy as np
 import torch
 import os
+from torchvision.transforms import Resize
+resize = Resize((512, 512))
 
 os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
@@ -43,6 +45,7 @@ def test(test_data_path='data/test_example.txt',
 
     with torch.no_grad():
         for names, (img, lab) in tqdm(zip(test_list, test_loader)):
+            img = resize(img) # 添加此行代码调整图片大小
             test_data, test_target = img.type(torch.cuda.FloatTensor).to(device), lab.type(torch.cuda.FloatTensor).to(
                 device)
             test_pred = trainer.val_op(test_data, test_target)
